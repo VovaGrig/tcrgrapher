@@ -53,7 +53,7 @@ bfs_for_TCRs <- function(clonoset, src, comp_id, v_gene = TRUE, j_gene = FALSE, 
                            .(cdr3aa, clone_id)]
     if(nrow(candidates) != 0){
       neighbors <- stringdistmatrix(clonoset[,cdr3aa][cur],
-                                    candidates[,cdr3aa], method = "hamming") <= 1
+                                    candidates[,cdr3aa], method = "hamming") <= 2
       for(n in candidates[neighbors[1,], clone_id]){
         clonoset[n, cluster_id := comp_id]
         clonoset[cur, cluster_id := comp_id]
